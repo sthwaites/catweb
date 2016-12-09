@@ -1,5 +1,6 @@
 from flask import Flask, render_template
 import random
+import platform
 
 app = Flask(__name__)
 
@@ -22,7 +23,8 @@ images = [
 @app.route('/')
 def index():
     url = random.choice(images)
-    return render_template('index.html', url=url)
+    hostname = platform.node()
+    return render_template('index.html', url=url, hostname=hostname)
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0")
