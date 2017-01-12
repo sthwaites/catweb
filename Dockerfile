@@ -5,7 +5,7 @@ FROM alpine:latest
 MAINTAINER steven.thwaites@docker.com
 
 # Install python and pip
-RUN apk add --update py-pip
+RUN apk add --update py2-pip
 
 # Upgrade pip
 RUN pip install --upgrade pip
