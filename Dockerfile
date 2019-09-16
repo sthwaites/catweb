@@ -5,10 +5,10 @@ FROM alpine:latest
 MAINTAINER steven.thwaites@docker.com
 
 # Install python and pip
-RUN apk add --update py2-pip
+RUN apk add --no-cache --update python3
 
 # Upgrade pip
-RUN pip install --upgrade pip
+RUN pip3 install --upgrade pip
 
 # Install Python modules needed by the Python app
 COPY requirements.txt /usr/src/app/
@@ -22,4 +22,4 @@ COPY templates/index.html /usr/src/app/templates/
 EXPOSE 5000
 
 # Run the application
-CMD ["python", "/usr/src/app/app.py"]
+CMD ["python3", "/usr/src/app/app.py"]
